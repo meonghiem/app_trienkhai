@@ -1,0 +1,1 @@
+{"num_feature": 3, "use_layer": "LSTM", "unit": 64, "look_back": 8, "is_ma": [true, false], "impute_method": "linear"}

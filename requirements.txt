@@ -1,0 +1,5 @@
+fastapi
+pika
+streamlit
+tensorflow
+scikit-learn
