@@ -13,10 +13,10 @@ import pandas as pd
 
 #process data
 
-vietnam_file_path = r"data\influA_vietnam_temp_month.csv"
-japan_file_path = r"data\influA_japan_temp_month.csv"
-vietnam_weight_path = r"weights\vietnam\best_month_model.weights.h5"
-japan_weight_path = r"weights\japan\best_month_model.weights.h5"
+vietnam_file_path = r"data/influA_vietnam_temp_month.csv"
+japan_file_path = r"data/influA_japan_temp_month.csv"
+vietnam_weight_path = r"weights/vietnam/best_month_model.weights.h5"
+japan_weight_path = r"weights/japan/best_month_model.weights.h5"
 
 
 with open( './weights/vietnam/config.json') as f:
