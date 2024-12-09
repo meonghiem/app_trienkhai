@@ -3,4 +3,3 @@ pika
 streamlit
 tensorflow
 scikit-learn
-streamlit-static-export

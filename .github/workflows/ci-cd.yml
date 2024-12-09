@@ -29,13 +29,20 @@ jobs:
       uses: streamlit/streamlit-app-action@v0.0.3
       with:
         app-path: app.py
-    - name: Export Streamlit app
+    - name: Deploy to GitHub Pages
       run: |
-        streamlit run app.py &
-        sleep 5
-        streamlit-static-export http://localhost:8501
+        streamlit run app.py --server.headless true
+        mkdir -p ~/.streamlit/
+        echo "\
+        [server]\n\
+        headless = true\n\
+        enableCORS=false\n\
+        port = 8501\n\
+        " > ~/.streamlit/config.toml
+        streamlit run app.py
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./static
+        publish_dir: ./  # Specify the directory to publish
