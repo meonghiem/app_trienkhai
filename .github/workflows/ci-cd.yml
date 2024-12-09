@@ -25,7 +25,17 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: Run Streamlit
+    - name: Deploy Streamlit app
+      uses: streamlit/streamlit-app-action@v0.0.3
+      with:
+        app-path: app.py
+    - name: Export Streamlit app
       run: |
-        pwd
-        streamlit run app.py --server.port 8501 &
+        streamlit run app.py &
+        sleep 5
+        streamlit-static-export http://localhost:8501
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./static
